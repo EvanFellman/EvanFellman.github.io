@@ -1,0 +1,416 @@
+<html>
+<style type="text/css">
+	.button{
+		background-color: rgb(54, 54, 54);
+		height: 4%;
+		cursor: pointer;
+		color: white;
+		font-size: 17px;
+	}
+	.contentDiv {
+		position: relative;
+		margin-top: 75px;
+		left: 15%; 
+		background-color: lightgray; 
+		width: 70%; 
+		border: 4px dotted gray; 
+		padding: 20px;
+		font-size: 17px;
+		clear: both;
+	}
+	a{
+	    display:block;
+	    text-decoration:none;
+	    color: black;
+	}
+	.center{
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 50%;
+	}
+	.topBar{
+		position: fixed;
+		width: 100%;
+		margin-top: 0px;
+		top: 0px;
+		left: 0px;
+		background-color: black;
+		z-index: 5000;
+		color: white;
+		border-bottom: 5px double rgb(50,50,150);
+	}
+
+	body {
+	  background-color: #474e5d;
+	  font-family: Helvetica, sans-serif;
+	}
+
+	.timeline {
+	  position: relative;
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	.timeline::after {
+	  content: '';
+	  position: absolute;
+	  width: 6px;
+	  background-color: white;
+	  top: 0;
+	  bottom: 0;
+	  left: 50%;
+	  margin-left: -3px;
+	}
+
+	.container {
+	  box-sizing: border-box;
+	  padding: 10px 40px;
+	  position: relative;
+	  background-color: inherit;
+	  width: 50%;
+	}
+
+	.container::after {
+	  content: '';
+	  position: absolute;
+	  width: 21px;
+	  height: 21px;
+	  right: -17px;
+	  background-color: white;
+	  border: 6px solid #c4831f;
+	  top: 15px;
+	  border-radius: 50%;
+	  z-index: 1;
+	}
+
+	.left {
+	  left: 0;
+	}
+
+	.right {
+	  left: 50%;
+	}
+
+	.left::before {
+	  content: " ";
+	  height: 0;
+	  position: absolute;
+	  top: 22px;
+	  width: 0;
+	  z-index: 1;
+	  right: 30px;
+	  border: medium solid white;
+	  border-width: 10px 0 10px 10px;
+	  border-color: transparent transparent transparent white;
+	}
+
+	.right::before {
+	  content: " ";
+	  height: 0;
+	  position: absolute;
+	  width: 0;
+	  z-index: 1;
+	  left: 30px;
+	  border: medium solid white;
+	  border-width: 10px 10px 10px 0;
+	  border-color: transparent white transparent transparent;
+	}
+
+	.right::after {
+	  left: -16px;
+	}
+
+	.content {
+	  padding: 20px 30px;
+	  background-color: white;
+	  position: relative;
+	  border-radius: 6px;
+	}
+
+	@media screen and (max-width: 600px) {
+	  .timeline::after {
+	    left: 31px;
+	  }
+
+	  .container {
+	    width: 100%;
+	    padding-left: 70px;
+	    padding-right: 25px;
+	  }
+
+	  .container::before {
+	    left: 60px;
+	    border: medium solid white;
+	    border-width: 10px 10px 10px 0;
+	    border-color: transparent white transparent transparent;
+	  }
+
+	  .left::after, .right::after {
+	    left: 15px;
+	  }
+
+	  .right {
+	    left: 0%;
+	  }
+	}
+</style>
+<script>
+	function highlight(a){
+		a.style.backgroundColor = "rgb(74, 74, 74)";
+		a.style.border = "3px dotted rgb(54, 54, 54)";
+	}
+
+	function unhighlight(a){
+		a.style.backgroundColor = "rgb(54, 54, 54)";
+	}
+
+	function redirect(website, newTab=false){
+		if(newTab){
+			window.open(website, "_blank");
+		} else {
+			window.location.href = website;
+		}
+	}
+</script>
+<body style="background-color: rgb(99,131,182); top: 0px; left: 0px; right: 0px; width: 100%; margin: 0px;">
+	<img src="imgs/riverSunset.jpg" style="width: 100%; height: 100%; position: fixed; bottom: 0; left: 0px; "></img>
+	<div class="topBar">
+		<table style="position: relative; width: 100%; padding-left: 5%; height: 75px; padding-right: 5%; text-align: center; table-layout: fixed;">
+			<tr style="margin-right: 0px;">
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('#about')">About</td>
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('#education')">Education</td>
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('#workExperience')">Work Experience</td>
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('#personalProjects')">Personal Projects</td>
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('#contactMe')">Contact Me</td>
+				<td class="button" onmouseover="highlight(this)" onmouseout="unhighlight(this)" onclick="redirect('Resume.pdf', newTab=true)">Resume</td>
+			</tr>
+		</table>
+	</div>
+	<div class="contentDiv" style="margin-top: 175px;" id="about">
+		<img src="imgs/evanpic.png" class="center" style="border-radius: 200px; width: 30%; border: 5px outset gray;">
+		<h1 style="margin-bottom: 0px; text-align: center; font-size: 50px;">Evan Fellman</h1>
+		<table class="center" style="width: 142; padding-top: 0px; margin-top: 0px;">
+			<tr>
+				<td><img src="imgs/mail.png" style="width: 30px; padding-right: 20px; cursor: pointer;" onclick="redirect('mailto:evan.fellman@gmail.com')"></td>
+				<td><img src="imgs/github.png" style="width: 30px; padding-right: 20px; cursor: pointer;" onclick="redirect('https://www.github.com/evanfellman', true)"></td>
+				<td><img src="imgs/linkedin.png" style="width: 30px; padding-right: 20px; cursor: pointer;" onclick="redirect('https://www.linkedin.com/in/evanfellman', true)"></td>
+			</tr>
+		</table>
+		<img src="imgs/line.png" class="center" style="width: 25%;">
+		<p style="position: relative; width: 90%; left: 5%; margin-bottom: 5%; margin-top: 5%; font-size: 20px;" id='education'> 
+			I am currently a full time student enrolled at the University of Massachusetts - Amherst with a GPA of 3.84 and intend to graduate in the spring of 2022. I am pursuing a Bachelor of Science  in Computer Science, a Bachelor of Science in Mathematics  with a concentration of Statistics and Data Science, and a Bachelor of Arts in Philosophy. I am dedicated to learning more about the field of machine learning, evident by my passion for creating and developing programs, coursework, and employment history.
+		</p>
+	</div>
+
+	<div class="contentDiv">
+		<h1 style='font-size: 50px; margin-top: 0px; text-align: center'>&#127979; Education &#127979;</h1>
+		<div style='margin-left: 50px;'>
+			<h2 style="margin-bottom: 0px;">University of Massachusetts - Amherst</h2>
+			<p style="margin-top: 0px;">
+				Currently, I am a Junior studying Computer Science (B.S.), Mathematics (B.S.) with a concentration in Statistics and Data Science, and Philosophy (B.A.). My GPA is 3.84 and I intend to graduate in spring of 2022.
+			</p>
+			<h3 style='margin-bottom: 0px;'>Course Work</h3>
+			<table>
+				<tr>
+					<td style='font-size: 50px; padding-right: 50px;'>&#128187;</td>
+					<td style='padding-bottom: 20;'>
+						Computer Science: Data Structures, Introduction to Computation, Programming Methodology, Computer
+						Systems Principles, Reasoning Under Uncertainty, Algorithms, Databases & SQL, Artificial Intelligence,
+						Natural Language Processing, Machine Learning, Software Engineering, and Data Science.
+					</td>
+				</tr>
+				<tr>
+					<td style='font-size: 50px; padding-right: 50px;'>&#128200;</td>
+					<td style='padding-bottom: 20;'>
+						Mathematics: Calc I, Calc II, Calc III, Linear Algebra, Ordinary Differential Equations, Computational Statistics, Statistics I, Statistics II, and Graph Theory & Combinatorics.
+					</td>
+				</tr>
+				<tr>
+					<td style='font-size: 50px; padding-right: 50px;' id='workExperience'>&#129504;</td>
+					<td>
+						Philosophy: Introduction to Philosophy, Introduction to Ethics, Intermediate Logic, History of Modern
+						Philosophy, History of Ancient Philosophy, Philosophy of Religion, Social & Political Philosophy, and Metaphysics.
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="contentDiv">
+		<h1 style='font-size: 50px; margin-top: 0px; text-align: center'>&#128188; Work Experience &#128188;</h1>
+		
+		<div class="timeline">
+		  <div class="container right" style="margin-bottom: -10%;">
+		    <div class="content" style="cursor: pointer;" onclick='redirect("https://groups.cs.umass.edu/infofusion/home/?_gl=1*wlnkuf*_ga*Mjc1NDE4MTU2LjE1NDcwODg3MDk.*_ga_21RLS0L7EB*MTYxNjU0OTY4Ny4zNS4wLjE2MTY1NDk2ODcuMA..&_ga=2.204311640.950583370.1616549687-275418156.1547088709", true)'>
+		      <h3 style="margin-bottom: 0px;">&#128300; InfoFusion Lab</a></h3>
+		      <p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;University of Massachusetts - Amherst</strong></p>
+		      <h3 style="margin-bottom: 0px;">Research Assistant</h3>
+		      <strong style="font-size: 12px; margin-top: 0px;">Jan 2021 - Present</strong>
+		      <ul class="jobDesc">
+		      	<li>Researched how to forecast the diagnosis of Alzheimer's disease two years ahead</li>
+				<li>Developed FLARe, a system of multilayer perceptrons to forecast Alzheimer's disease</li>
+				<li>Worked on segmenting parts of brain for more data to analyze</li>
+				<li>Quantified cortical shriveling, an indication of Alzheimer's, through both thickness and a roughness measurement</li>
+			  </ul>
+		    </div>
+		  </div>
+		  <div class="container left" style="margin-bottom: -10%;">
+		    <div class="content" style="top: -25px;">
+		      <h3 style="margin-bottom: 0px;">&#128188; FellarFlo Group</a></h3>
+		      	<p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Boca Raton, FL</strong></p>
+		      <h3 style="margin-bottom: 0px;">Software Developer</h3>
+		      <strong style="font-size: 12px; margin-top: 0px;">March 2021 - Present</strong>
+		      <ul class="jobDesc">
+		      	<li>Used Agile workflow to create a webapp using Node.js</li>
+				<li>Developed website to allow users to play several games by themselves, against others, or against an Artificial Intelligence</li>
+			  </ul>
+		    </div>
+		  </div>
+		  <div class="container right" style="margin-bottom: -10%;">
+		    <div class="content" style="top: -25px;">
+		      <h3 style="margin-bottom: 0px;">&#128188; GuideWire</a></h3>
+		      <p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Bedford, MA</strong></p>
+		      <h3 style="margin-bottom: 0px;">Software Developer Intern</h3>
+		      <strong style="font-size: 12px; margin-top: 0px;">June 2021 - August 2021</strong>
+		      <ul class="jobDesc">
+		      	<li>Worked in an Agile system using TypeScript (JavaScript) as front end and Spring Boot (Java) as back end</li>
+		      	<li>Created an environment to test rules for insurance polices</li>
+		      	<li>Created a system to allow rules and sets of rules of insurance policies to be imported and exported</li>
+			  </ul>
+		    </div>
+		  </div>
+		  <div class="container left" style="margin-bottom: -10%;">
+		    <div class="content" style="top: -25px;">
+			    <h3 style="margin-bottom: 0px;">&#127979; UMass - Amherst</h3>
+		      	<p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Amherst, MA</strong></p>
+			    <h3 style="margin-bottom: 0px;">Undergraduate Teaching Assistant</h3>
+
+			    <strong style="font-size: 12px;">Jan 2020 - Present</strong>
+			    <p style="margin-left: 0px;"><strong>Artificial Intelligence and Programming Methodology</strong></p>
+			    <ul class="jobDesc">
+					<li>Received the Outstanding Undergraduate Teaching Assistant Award twice for work ethic, enthusiasm, teaching ability and dedication</li>
+					<li>Created course content used by all Teaching Assistants</li>
+					<li>Provided academic support to students through leading lab sessions, holding office hours and the class forum</li>
+					<li>Graded assignments and exams</li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="container right" style="margin-bottom: -10%;">
+		    <div class="content" style="top: -25px;">
+		      <h3 style="margin-bottom: 0px;">&#127979; Machine Learning Research Club</h3>
+		      <p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Amherst, MA</strong></p>
+
+		      <h3 style="margin-bottom: 0px;">Project Leader</h3>
+		      <strong style="font-size: 12px;">Sept 2020 - Dec 2020</strong>
+		      <ul class="jobDesc">
+		      	<li>Lead team of four using an Agile process</li>
+				<li>Implemented NeuroEvolution of Augmenting Topologies (NEAT) to have a player properly navigate a 3D space in minecraft</li>
+			  </ul>
+		    </div>
+		  </div>
+		  <div class="container left" style="margin-bottom: -10%;">
+		    <div class="content" style="top: -25px;">
+		      <h3 style="margin-bottom: 0px;">&#128188; Voya Financial</h3>
+		      <p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Windsor, CT</strong></p>
+
+		      <h3 style="margin-bottom: 0px;">Software Developer Intern</h3>
+		      <strong style="font-size: 12px;">May 2020 - Nov 2020</strong>
+		      <ul class="jobDesc">
+		      	<li>Developed a parser/interpreter using Python to integrate new automation system</li>
+				<li>Automated F5 load balancing tasks</li>
+				<li>Automated tasks using Python with Ansible</li>
+			  </ul>
+		    </div>
+		  </div>
+		  <div class="container right">
+		    <div class="content" style="top: -25px;">
+			    <h3 style="margin-bottom: 0px;">&#128188; HackUMass </h3>
+		      	<p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;Amherst, MA</strong></p>
+			    <h3 style="margin-bottom: 0px;">Full Stack Web Developer</h3>
+			    <strong style="font-size: 12px;">March 2019 - October 2019</strong>
+			    <ul class="jobDesc">
+			    	<li>Created an open source Dashboard web app (Ruby on Rails), used by other hackathons (Tech Together Boston)</li>
+					<li>Collaborated with co-developers to create and facilitate HackUMass, a hackathon and the largest student run organization at UMass</li>
+					<li>Managed audio, video, and live streams for all events and workshops</li>
+					<li id="personalProjects">Developed & taught workshops in Functional Programming with Haskell & Programming with Python</li>
+				</ul>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<div class="contentDiv">
+		<h1 style='font-size: 50px; margin-top: 0px; text-align: center'>&#128104;&#8205;&#128187; Personal Projects &#128104;&#8205;&#128187;</h1>
+		<table>
+			<tr>
+				<td style="width: 15%; cursor: pointer; vertical-align:top;" onclick="redirect('https://github.com/EvanFellman/NeuroEvolution-of-Augmenting-Topologies',true)"><img src="imgs/neuralNet.png" style="width: 100%; border: 5px double black;"></td>
+				<td style="width: 85%;">
+					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/NeuroEvolution-of-Augmenting-Topologies',true)">NeuroEvolution of Augmenting Topologies</h1>
+					<ul class="jobDesc">
+						<li>Implemented the machine learning algorithm NEAT from scratch using Python</li>
+						<li>The neural network can learn to solve nearly any problem; currently looks at pixels to determine the color</li>
+						<li>Changes the topology, weights, and biases to better suit the problem</li>
+						<li>Compatible with other self made projects</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%; cursor: pointer; vertical-align:top;"  onclick="redirect('https://github.com/EvanFellman/Braitenberg-Vehicles',true)"><img src="imgs/antfarm.png" style="width: 100%; border: 5px double black;"></td>
+				<td style="width: 85%;">
+					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/Braitenberg-Vehicles',true)">Braitenberg Vehicles</h1>
+					<ul class="jobDesc">
+						<li>Created and implemented the machine learning algorithm that learns to navigate to food before its competitors eat them and reproduce</li>
+						<li>Uses NEAT as the machine learning algorithm</li>
+						<li>When a creature hasn't eaten any food for long enough, it will die</li>
+						<li>Each living creature when it eats enough food will spawn a child (mutated version of itself); over time through this process, the average living creature will improve at finding and eating food.</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%; cursor: pointer; vertical-align:top;"  onclick="redirect('https://github.com/EvanFellman/FlappyNetwork',true)"><img src="imgs/flappyNetwork.png" style="width: 100%; border: 5px double black;"></td>
+				<td style="width: 85%;">
+					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/FlappyNetwork',true)">Neural Network Player</h1>
+					<ul class="jobDesc">
+						<li>Implemented a machine learning strategy using neural networks from scratch using Python</li>
+						<li>Uses genetic evolution to learn to play the popular game, Flappy Bird</li>
+						<li>Fitness of each creature is measured by the distance traveled which is proportional to the number of pipes past</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%; cursor: pointer; vertical-align:top;"  onclick="redirect('https://github.com/EvanFellman/PlatformerJavaEdition',true)"><img src="imgs/platformer.png" style="width: 100%; border: 5px double black;"></td>
+				<td style="width: 85%;">
+					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/PlatformerJavaEdition',true)">Platformer Game</h1>
+					<ul class="jobDesc">
+						<li>Platformer game that utilizes Java and it's own physics and graphics engine</li>
+						<li>Multiple sprites with player interaction, including enemies with advanced AI</li>
+						<li>different areas of play; levels, self creation, or randomly generated levels</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 15%; cursor: pointer; vertical-align:top;"  onclick="redirect('https://github.com/EvanFellman/LaughTrack',true)"><img src="imgs/haha.png" style="width: 100%; border: 5px double black;"></td>
+				<td style="width: 85%;">
+					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/LaughTrack',true)">HaHa Track App</h1>
+					<ul class="jobDesc">
+						<li>Android app currently available on Google Play</li>
+						<li>Press the button to play a randomized copyright free laugh track</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="contentDiv" style="bottom:0px;" id='contactMe'>
+		<h1 style="text-align: center; margin-top: 0px;">Contact Me:</h1>
+		<table style="width: 100%; font-size: 20px; text-align: center;">
+			<tr>
+				<td><a href="mailto:evan.fellman@gmail.com">evan.fellman@gmail.com</a></td>
+				<td><a href="https://www.github.com/evanfellman" target="_blank" rel="noopener noreferrer">github.com/evanfellman</a></td>
+				<td><a href="https://www.linkedin.com/in/evanfellman" target="_blank" rel="noopener noreferrer">linkedin.com/in/evanfellman</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
