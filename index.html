@@ -13,7 +13,7 @@
 		left: 15%; 
 		background-color: lightgray; 
 		width: 70%; 
-		border: 4px dotted gray; 
+		border: 10px double gray; 
 		padding: 20px;
 		font-size: 17px;
 		clear: both;
@@ -44,6 +44,68 @@
 	body {
 	  background-color: #474e5d;
 	  font-family: Helvetica, sans-serif;
+	}
+
+	#topSymbolBottom {
+		width: 0; 
+  		height: 0; 
+  		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+  		border-top: 30px solid #fff;
+  		z-index: 1000;
+  		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	#topSymbolTop {
+		width: 0; 
+  		height: 0; 
+  		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+  		border-bottom: 20px solid #fff;
+  		z-index: 999;
+  		top: -20px;
+  		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	#BottomSymbolBottom {
+		width: 0; 
+  		height: 0; 
+  		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+  		border-bottom: 30px solid #fff;
+  		z-index: 1000;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -5px;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	#bottomSymbolTop {
+		width: 0; 
+  		height: 0; 
+  		border-left: 25px solid transparent;
+		border-right: 25px solid transparent;
+  		border-top: 20px solid #fff;
+  		margin-top: 25px;
+  		z-index: 999;
+  		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
 	}
 
 	.timeline {
@@ -242,6 +304,8 @@
 		<h1 style='font-size: 50px; margin-top: 0px; text-align: center'>&#128188; Work Experience &#128188;</h1>
 
 		<div class="timeline">
+		  <div id="topSymbolTop"></div>
+		  <div id="topSymbolBottom"></div>
 		  <div class="container right" style="margin-bottom: -10%;">
 		    <div class="content" style="cursor: pointer;" onclick='redirect("https://groups.cs.umass.edu/infofusion/home/?_gl=1*wlnkuf*_ga*Mjc1NDE4MTU2LjE1NDcwODg3MDk.*_ga_21RLS0L7EB*MTYxNjU0OTY4Ny4zNS4wLjE2MTY1NDk2ODcuMA..&_ga=2.204311640.950583370.1616549687-275418156.1547088709", true)'>
 		      <h3 style="margin-bottom: 0px;">&#128300; InfoFusion Lab</a></h3>
@@ -352,7 +416,11 @@
 				</ul>
 		    </div>
 		  </div>
+
 		</div>
+
+		  <div id="bottomSymbolTop"></div>
+		  <div id="bottomSymbolBottom"></div>
 	</div>
 
 	<div class="contentDiv">
