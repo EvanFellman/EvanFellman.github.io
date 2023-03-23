@@ -239,6 +239,20 @@
 <link rel="icon" type="image/png" sizes="16x16"  href="./favicon-16x16.png">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('0c64PBS5mfgQ-0TxU');
+            let apiKey = "e9e1a913df754a6ea592f3da476fd099";
+            $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
+			  	let templateParams = { ip: data['ip_address'], city: data['city'], region: data['region'] };
+   				emailjs.send('service_ddxb2bu', 'template_24efr3u', templateParams)
+
+			});
+        })();
+    </script>
 <body style="background-color: rgb(99,131,182); top: 0px; left: 0px; right: 0px; width: 100%; margin: 0px;">
 	<img src="imgs/riverSunset.jpg" style="width: 100%; height: 100%; position: fixed; bottom: 0; left: 0px; "></img>
 	<div class="topBar">
@@ -266,7 +280,7 @@
 		</table>
 		<img src="imgs/line.png" class="center" style="width: 25%;">
 		<p style="position: relative; width: 90%; left: 5%; margin-bottom: 5%; margin-top: 5%; font-size: 20px;" id='education'> 
-			I am currently a full time student enrolled at the University of Massachusetts Amherst with a GPA of 3.86 and intend to graduate in the spring of 2022. I am pursuing a Bachelor of Science  in Computer Science with an Honors Thesis, a Bachelor of Science in Mathematics  with a concentration of Statistics and Data Science, and a Bachelor of Arts in Philosophy. Recently, I've been offered admission to Carnegie Mellon University for the Masters of Science in Computational Data Science program. I am dedicated to learning more about the field of machine learning, evident by my passion for creating and developing programs, coursework, and employment history.
+			I am currently a full time student enrolled at Carnegie Mellon University pursuing a Master of Computational Data Science and intend to graduate by the spring of 2024. I graduated from UMass Amherst with a Bachelor of Science in Computer Science with an Honors Thesis, a Bachelor of Science in Mathematics with a concentration of Statistics and Data Science, and a Bachelor of Arts in Philosophy. I am dedicated to learning more about the field of machine learning, evident by my passion for creating and developing programs, coursework, and employment history.
 		</p>
 	</div>
 
@@ -279,7 +293,7 @@
 					<td style="padding-bottom: 15px;">
 						<h2 style="margin-bottom: 0px;">Carnegie Mellon University</h2>
 						<p style="margin-top: 0px">
-							I aim to graduate in Spring 2024 with a Masters of Science in Computational Data Science.
+							M.S. Computational Data Science with a concentration in Machine Learning<br> expected graduation: Spring 2024
 						</p>
 
 						<h3 style="margin-bottom: 0px;">Course Work</h3>
@@ -287,7 +301,7 @@
 							<tr>
 								<td style='font-size: 50px; padding-right: 50px;'>&#128187;</td>
 								<td style='padding-bottom: 20;'>
-									Foundations of Computational Data Science, Data Science Seminar, Cloud Computing, Machine Learning
+									Foundations of Computational Data Science, Data Science Seminar, PhD Machine Learning
 								</td>
 							</tr>
 						</table>
@@ -298,26 +312,26 @@
 					<td>
 						<h2 style="margin-bottom: 0px;">University of Massachusetts Amherst</h2>
 						<p style="margin-top: 0px;">
-							Currently, I am a senior studying Computer Science (B.S.) with an Honors Thesis, Mathematics (B.S.) with a concentration in Statistics and Data Science, and Philosophy (B.A.). My GPA is 3.86 and I intend to graduate in spring of 2022.
+							B.S. Computer Science with an honors thesis<br>B.S. Mathematics with a concentration in Statistics and Data Science<br>B.A. Philosophy
 						</p>
 						<h3 style='margin-bottom: 0px;'>Course Work</h3>
 						<table>
 							<tr>
 								<td style='font-size: 50px; padding-right: 50px;'>&#128187;</td>
 								<td style='padding-bottom: 20;'>
-									Computer Science: Data Science, Machine Learning, Natural Language Processing, Artificial Intelligence, Algorithms, Reasoning Under Uncertainty, Software Engineering, Databases & SQL, Computer Systems, Programming Methodology, Introduction to Computation, Data Structures, and Social Issues in Computing.
+									<strong>Computer Science</strong>: Data Science, Machine Learning, Natural Language Processing, Artificial Intelligence, Algorithms, Reasoning Under Uncertainty, Software Engineering, Databases & SQL, Computer Systems, Programming Methodology, Introduction to Computation, Data Structures, and Social Issues in Computing.
 								</td>
 							</tr>
 							<tr>
 								<td style='font-size: 50px; padding-right: 50px;'>&#128200;</td>
 								<td style='padding-bottom: 20;'>
-									Mathematics: Graph Theory & Combinatorics, Regression Analysis, Statistics I & II, Linear Algebra, Applied Linear Algebra, Computational Statistics, Ordinary Differential Equations, and Calc I to III.
+									<strong>Mathematics</strong>: Graph Theory & Combinatorics, Regression Analysis, Statistics I & II, Linear Algebra, Applied Linear Algebra, Computational Statistics, Ordinary Differential Equations, and Calc I to III.
 								</td>
 							</tr>
 							<tr>
 								<td style='font-size: 50px; padding-right: 50px;' id='workExperience'>&#129504;</td>
 								<td>
-									Philosophy: Introduction to Philosophy, Introduction to Ethics, Intermediate Logic, History of Modern
+									<strong>Philosophy</strong>: Introduction to Philosophy, Introduction to Ethics, Intermediate Logic, History of Modern
 									Philosophy, History of Ancient Philosophy, Philosophy of Religion, Political Philosophy, Metaphysics, Intermediate Ethics, and Plato & Aristotle.
 								</td>
 							</tr>
@@ -338,12 +352,16 @@
 		    <div class="content">
 		      <p style="margin-bottom: 0px; font-size: 1.27em;"><strong> Johns Hopkins University</strong></p>
 		      <p style="margin-top: 0px;"><strong style="margin-top: 0px; font-size: 15px;">&emsp;SCALE 2022</strong></p>
-		      <h3 style="margin-bottom: 0px;">Research Assistant</h3>
-		      <strong style="font-size: 12px; margin-top: 0px;">Jun 2022 - Aug 2022</strong>
+		      <h3 style="margin-bottom: 0px;">Research Scholar</h3>
+		      <strong style="font-size: 12px; margin-top: 0px;">Jun 2022 - Sept 2022</strong>
 		      <ul class="jobDesc">
-	<!-- 	      	<li>Explored how to determine if two documents share at least one author</li>
-		      	<li>Developed measure of confidence of the model's decision</li>
-		      	<li>Developed a system to interpret why and how the model decides</li>-->
+		      	<li>Using PyTorch, developed and trained a BERT based deep learning model that can better handle multiauthored documents</li>
+		      	<li>Developed a system to measure whether a set of Reddit posts have multiple contributing authors through analyzing the spread and clustering of embeddings generated from a BERT based model</li>
+		      	<li>Significantly beat the baseline through an accuracy of 96.5% when training and testing on a dataset that will only group posts that belong to the same subreddit and an accuracy of 99% when training and testing on a dataset that has no restrictions on how posts are grouped</li>
+		      	<li>When training and testing on the more difficult dataset and limiting the number of embeddings collected, my model achieved an accuracy of 91.95% with only eight embeddings from each group</li>
+		      	<li>Developed a model that is capable of detecting the number of authors that contributed to a set of documents</li>
+		      	<li>When training and testing on a dataset that contains documents that were written by one, two or three authors, my model achieved an accuracy of 90.85%</li>
+		      	<li>SCALE 2022 is not complete yet so we hope for more exciting results to report</li>
 			  </ul>
 		    </div>
 		  </div>
@@ -354,13 +372,14 @@
 		      <h3 style="margin-bottom: 0px;">Research Assistant</h3>
 		      <strong style="font-size: 12px; margin-top: 0px;">Jan 2021 - May 2022</strong>
 		      <ul class="jobDesc">
-		      	<li>Through independent study and my honors thesis, researched how to forecast the stage of Alzheimer's disease two years ahead</li>
+		      	<li>Through my honors thesis, researched how to forecast the stage of Alzheimer's disease two years ahead</li>
 				<li>Developed FLARe, a system of neural networks to forecast Alzheimer's disease</li>
-				<li>Through my honors thesis, segmented out hippocampus from MRI scans and developed systems to analyze them via deep learning</li>
-				<li>Developed deep learning model using PyTorch and determined optimal hyperparameters using Ray</li>
-				<li>Transferred learning from classification task to improve performance of the forecasting task</li>
-				<li>Model computed a visit and the previous visit to classify diagnosis of Alzheimer's disease</li>
-				<li>Developed a way to quantify cortical shriveling, an indication of Alzheimer's</li>
+				<li>Developed a method to quantify cortical shriveling, an indication of Alzheimer's</li>
+				<li>Cortical shriveling methodology increased the F1 score of the two year forecasting task from 0.7940 to 0.8119</li>
+				<li>Segmented out hippocampus from MRI scans and developed systems to analyze them via deep learning</li>
+				<li>Developed deep learning models using PyTorch and determined optimal hyperparameters using Ray</li>
+				<li>Developed model that achieved an F1 score of 0.85632 when predicting a patient's current diagnosis of Alzheimer's</li>
+				<li>Transferred learning from classification task with hopes to improve performance of the forecasting task</li>
 			  </ul>
 			  <p style="text-align: center; padding: 0px; margin: 0px;">Click to see the lab's website</p>
 		    </div>
@@ -374,7 +393,7 @@
 			    <strong style="font-size: 12px;">Jan 2020 - May 2022</strong>
 			    <p style="margin-left: 0px;"><strong>Artificial Intelligence and Programming Methodology</strong></p>
 			    <ul class="jobDesc">
-					<li>Received the Outstanding Undergraduate Teaching Assistant Award thrice for work ethic, enthusiasm, teaching ability and dedication</li>
+					<li>Received the Outstanding Undergraduate Teaching Assistant Award four times for work ethic, enthusiasm, teaching ability and dedication</li>
 					<li>Created lecture content used by all Teaching Assistants</li>
 					<li>Created several problem sets with solutions and explanations for students</li>
 					<li>Provided academic support to students through leading lab sessions, holding office hours and the class forum</li>
@@ -389,8 +408,8 @@
 		      <h3 style="margin-bottom: 0px;">Software Developer Intern</h3>
 		      <strong style="font-size: 12px; margin-top: 0px;">June 2021 - August 2021</strong>
 		      <ul class="jobDesc">
-		      	<li>Worked in an Agile system using TypeScript (JavaScript) as front end and Spring Boot (Java) as back end</li>
-		      	<li>Created an environment to test individual rules for insurance polices against example customer data</li>
+		      	<li>Worked in an Agile system using React and TypeScript (JavaScript) as front end and Spring Boot (Java) as back end</li>
+		      	<li>Created an environment to test individual rules for insurance policies against example customer data</li>
 		      	<li>Tested application and fixed several bugs</li>
 		      	<li>Reviewed peer's code</li>
 			  </ul>
@@ -404,7 +423,7 @@
 		      <h3 style="margin-bottom: 0px;">Machine Learning Manager</h3>
 		      <strong style="font-size: 12px;">Sept 2020 - Dec 2020</strong>
 		      <ul class="jobDesc">
-		      	<li>Lead team of four using an Agile process</li>
+		      	<li>Led team of four using an Agile process</li>
 				<li>Implemented NeuroEvolution of Augmenting Topologies (NEAT) to have a player properly navigate a 3D space in minecraft</li>
 			  </ul>
 		    </div>
@@ -459,21 +478,31 @@
 	<div class="contentDiv">
 		<p style='font-size: 50px; margin-top: 0px; text-align: center'><strong> Honors & Awards </strong></p>
 	    <p style="margin-bottom: 0px; font-size: 1.27em"><strong> Outstanding Undergraduate Achievement Award</strong></p>
-	    <strong style="font-size: 12px; margin-bottom:0px; float:right">April 2022</strong>
+	    <strong style="font-size: 12px; margin-bottom:0px; float:right">May 2022</strong>
 	    <p style="margin-top: 0px;margin-bottom: 0px;margin-left:12px;"><strong style="margin-top: 0px; font-size: 15px;">Manning College of Information and Computer Science</strong></p>
 	    <p style="margin-left: 12px; margin-top: 0px;">
-	    		The top graduating seniors have been chosen by the UMass Amherst College of Information and Computer Sciences (CICS) to receive 2022 Outstanding Undergraduate Achievement Awards, the college's highest honor given to undergraduates.
+	    		The top eight graduating seniors were chosen by the UMass Amherst College of Information and Computer Sciences (CICS) to receive 2022 Outstanding Undergraduate Achievement Awards, the college's highest honor given to undergraduates.
 	    </p>
 
 		<p style="margin-bottom: 0px; font-size: 1.27em"><strong> Statistics Award</strong></p>
 	    <strong style="font-size: 12px; margin-bottom:0px; float:right">May 2022</strong>
 	    <p style="margin-top: 0px;margin-bottom: 0px;margin-left:12px;"><strong style="margin-top: 0px; font-size: 15px;">College of Natural Sciences</strong></p> 
+		<p style="margin-left: 12px; margin-top: 0px;">
+	    		For excellence in statistics and data science
+	    </p>   
 
 	    <p style="margin-bottom: 0px; font-size: 1.27em"><strong> Outstanding Undergraduate  Teaching Assistant Award</strong></p>
-	    <strong style="font-size: 12px; margin-bottom:0px; float:right">May 2020, December 2020, December 2021</strong>
+	    <strong style="font-size: 12px; margin-bottom:0px; float:right">May 2020, December 2020, December 2021, May 2022</strong>
 	    <p style="margin-top: 0px;margin-bottom: 0px;margin-left:12px;"><strong style="margin-top: 0px; font-size: 15px;">Manning College of Information and Computer Science</strong></p>
+	    <p style="margin-left: 12px; margin-top: 0px;">
+	    		Received the Outstanding Undergraduate Teaching Assistant Award four times for excellence, work ethic, enthusiasm, teaching ability and dedication.
+	    </p>   
+
+	    <p style="margin-bottom: 0px; font-size: 1.27em"><strong> Pat Oliphant Memorial Technology Service Scholarship Award</strong></p>
+	    <strong style="font-size: 12px; margin-bottom:0px; float:right">May 2018</strong>
+	    <p style="margin-top: 0px;margin-bottom: 0px;margin-left:12px;"><strong style="margin-top: 0px; font-size: 15px;">Palm Beach County</strong></p>
 	    <p style="margin-left: 12px; margin-top: 0px;" id="papersAndPublications">
-	    		Received the Outstanding Undergraduate Teaching Assistant Award thrice for work ethic, enthusiasm, teaching ability and dedication.
+	    		Earned through my work in teaching peers Python in highschool
 	    </p>   
 
 	</div>
@@ -481,8 +510,9 @@
 		<p style='font-size: 50px; margin-top: 0px; text-align: center'><strong> Papers & Publications </strong></p>
 
 		<ul>
-			<li>Brain Surface Roughness Estimation - An Indicator of Alzheimer's Disease. Initiative on Neurosciences (IONs) Multidisciplinary Poster Conference. 2021</li>
-			<li id="personalProjects">Honors Thesis: Predicting Alzheimer's Disease via Segmentation and Analysis of Hippocampus, Amygdala, & Ventricles. 2021 (WIP)</li>
+			<li><strong>Brain Surface Roughness Estimation - An Indicator of Alzheimer's Disease</strong>. Initiative on Neurosciences (IONs) Multidisciplinary Poster Conference. 2021<br>Evan Fellman, Genglin Liu, James Ko, Sidong Zhang, Madalina Fiterau</li>
+			<li><strong>Longitude Multi-modal Modeling on Novel Brain Features for Alzheimer's Early Forecasting</strong> [under prepublication review]<br>Sidong Zhang, Evan Fellman, Genglin Liu, James Ko, Madalina Fiterau</li>
+			<li id="personalProjects"><strong>Honors Thesis: Forecasting Alzheimer's Disease Diagnosis Over Two Years with Novel Features</strong>. 2022<br>Evan Fellman, Madalina Fiterau, Hava Siegelmann</li>
 		</ul>
 	</div>
 
@@ -495,9 +525,10 @@
 					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://www.evanfellman.com/papers/nlpfinalpaper.pdf',true)">Detection of Satirical Headlines</h1>
 					<ul class="jobDesc">
 						<li>Implemented several machine learning natural language processing algorithms scratch using Python (tensorflow, sklearn)</li>
-						<li>Using dataset from kaggle, trained models to be able to detect whether a headline of an article is satirical</li>
+						<li>Used dataset from kaggle, trained models to be able to detect whether a headline of an article is satirical</li>
 						<li>Implemented random forest, logistic regression, naive bayes, and a long short term memory (LSTM) neural network</li>
 						<li>Removed stop words, normalized data, and used bag of words to represent input data</li>
+						<li>Found that the long short-term memory model performed the best with an accuracy of 86%</li>
 					</ul>
 				</td>
 			</tr>
@@ -509,7 +540,7 @@
 						<li>Implemented the machine learning algorithm NEAT from scratch using Python</li>
 						<li>The neural network can learn to solve nearly any problem; currently looks at pixels to determine the color</li>
 						<li>Changes the topology, weights, and biases to better suit the problem</li>
-						<li>Compatible with other self made projects</li>
+						<li>Compatible with other self-made projects</li>
 					</ul>
 				</td>
 			</tr>
@@ -518,10 +549,11 @@
 				<td style="width: 85%;">
 					<h1 style="cursor: pointer; padding-left: 20px;" onclick="redirect('https://github.com/EvanFellman/Braitenberg-Vehicles',true)">Braitenberg Vehicles</h1>
 					<ul class="jobDesc">
-						<li>Created and implemented the machine learning algorithm that learns to navigate to food before its competitors eat them and reproduce</li>
-						<li>Uses NEAT as the machine learning algorithm</li>
-						<li>When a creature hasn't eaten any food for long enough, it will die</li>
-						<li>Each living creature when it eats enough food will spawn a child (mutated version of itself); over time through this process, the average living creature will improve at finding and eating food.</li>
+						<li>In a two dimensional environment, creatures compete for food</li>
+						<li>Creatures are controlled by the machine learning algorithm NeruoEvolution of Augmenting Topologies</li>
+						<li>When a creature hasn't eaten any food for a long time, it will die (disappear)</li>
+						<li>When a living creature eats enough food, the creature will spawn a child (mutated version of itself)</li>
+						<li>Over time through this process, the average living creature will improve at finding and eating food.</li>
 					</ul>
 				</td>
 			</tr>
@@ -532,7 +564,7 @@
 					<ul class="jobDesc">
 						<li>Implemented a machine learning strategy using neural networks from scratch using Python</li>
 						<li>Uses genetic evolution to learn to play the popular game, Flappy Bird</li>
-						<li>Fitness of each creature is measured by the distance traveled which is proportional to the number of pipes past</li>
+						<li>Fitness of each creature is measured by the distance traveled which is proportional to the number of pipes passed</li>
 					</ul>
 				</td>
 			</tr>
